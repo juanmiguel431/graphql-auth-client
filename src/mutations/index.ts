@@ -17,3 +17,12 @@ mutation LogOut {
     }
 }
 `;
+
+export const signupMutation = gql`
+mutation SignUp($email: String!, $password: String!) {
+    signUp(email: $email, password: $password) {
+        id
+        email
+    }
+}
+`;

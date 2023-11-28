@@ -5,6 +5,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import App from './App.tsx'
 import LoginForm from './components/LoginForm.tsx';
 import Dashboard from './components/Dashboard.tsx';
+import SignupForm from './components/SignupForm.tsx';
 
 // https://www.apollographql.com/docs/react/networking/authentication/
 const httpLink = createHttpLink({
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginForm/>,
+      },
+      {
+        path: '/signup',
+        element: <SignupForm/>,
       },
       {
         path: '/dashboard',
