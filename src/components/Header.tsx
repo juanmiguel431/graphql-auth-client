@@ -14,17 +14,23 @@ const Header: React.FC = () => {
   const [login, loginResult] = useMutation(loginMutation);
   const [logout, logoutResult] = useMutation(logoutMutation);
 
+  const user = data?.user;
+
   return (
     <div>
       Header
-      <h3>{data?.user?.email}</h3>
-      <button onClick={() => {
-        login({ variables: { email: 'juanmiguel431@gmail.com', password: '12345678' } })
-          .then(refetch);
-      }}>Login</button>
-      <button onClick={() => {
-        logout().then(refetch);
-      }}>Logout</button>
+      <h3>{user?.email}</h3>
+      {user ? (
+        <button onClick={() => {
+          logout()
+            .then(refetch);
+        }}>Logout</button>
+      ) : (
+        <button onClick={() => {
+          login({ variables: { email: 'juanmiguel431@gmail.com', password: '12345678' } })
+            .then(refetch);
+        }}>Login</button>
+      )}
     </div>
   );
 };
