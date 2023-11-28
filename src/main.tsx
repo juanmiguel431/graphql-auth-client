@@ -1,12 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import App from './App.tsx'
 
-const client = new ApolloClient({
+// https://www.apollographql.com/docs/react/networking/authentication/
+const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
+  credentials: 'include',
+});
+
+const client = new ApolloClient({
   cache: new InMemoryCache(),
+  link: httpLink
 });
 
 const router = createBrowserRouter([
