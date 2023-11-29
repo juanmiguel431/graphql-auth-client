@@ -14,7 +14,8 @@ const SignupForm: React.FC = () => {
   const onSubmit = useCallback((user: AuthSubmit) => {
     signup({
       variables: user,
-      refetchQueries: [{ query: fetchUserQuery }]
+      refetchQueries: [{ query: fetchUserQuery }],
+      awaitRefetchQueries: true,
     }).then(() => {
       setErrors([]);
       navigate('/dashboard');

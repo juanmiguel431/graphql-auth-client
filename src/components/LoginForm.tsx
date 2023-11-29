@@ -14,7 +14,8 @@ const LoginForm: React.FC = () => {
   const onSubmit = useCallback((user: AuthSubmit) => {
     login({
       variables: user,
-      refetchQueries: [{ query: fetchUserQuery }]
+      refetchQueries: [{ query: fetchUserQuery }],
+      awaitRefetchQueries: true,
     }).then(() => {
       setErrors([]);
       navigate('/dashboard');
