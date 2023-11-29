@@ -23,23 +23,24 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, errors }) => {
   return (
     <div className="row">
       <form onSubmit={_onSubmit} className="col s6">
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          id="email"
-          placeholder="someone@domain.com"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
+        <div className="input-field">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+        </div>
         {errors && errors.length > 0 &&
           <div className={classes.errors}>
             {errors.map(e => (
