@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import App from './App.tsx'
 import LoginForm from './components/LoginForm.tsx';
@@ -18,26 +18,15 @@ const client = new ApolloClient({
   link: httpLink
 });
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App/>,
-    children: [
-      {
-        path: '/login',
-        element: <LoginForm/>,
-      },
-      {
-        path: '/signup',
-        element: <SignupForm/>,
-      },
-      {
-        path: '/dashboard',
-        element: <Dashboard/>,
-      }
-    ]
-  },
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App/>}>
+      <Route path="login" element={<LoginForm/>}/>
+      <Route path="signup" element={<SignupForm/>}/>
+      <Route path="dashboard" element={<Dashboard/>}/>
+    </Route>
+  )
+);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
