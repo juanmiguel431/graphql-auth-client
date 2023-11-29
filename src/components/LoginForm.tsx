@@ -4,8 +4,9 @@ import { ApolloError, useMutation } from '@apollo/client';
 import { loginMutation } from '../mutations';
 import { fetchUserQuery } from '../queries';
 import { useNavigate } from 'react-router-dom';
+import requireNotAuth from './requireNotAuth.tsx';
 
-const LoginForm: React.FC = () => {
+const _LoginForm: React.FC = () => {
   const [errors, setErrors] = useState<string[]>([]);
   const [login, loginResult] = useMutation(loginMutation);
 
@@ -34,5 +35,7 @@ const LoginForm: React.FC = () => {
     </>
   );
 };
+
+const LoginForm = requireNotAuth(_LoginForm);
 
 export default LoginForm;

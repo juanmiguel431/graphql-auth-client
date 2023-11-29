@@ -12,8 +12,8 @@ type AuthFormProps = {
 }
 
 const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, errors }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('juanmiguel431@gmail.com');
+  const [password, setPassword] = useState('12345678');
 
   const _onSubmit: React.FormEventHandler<HTMLFormElement> = useCallback((e) => {
     e.preventDefault();
