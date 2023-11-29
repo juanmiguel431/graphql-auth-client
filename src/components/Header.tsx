@@ -29,7 +29,8 @@ const Header: React.FC = () => {
                 e.preventDefault();
                 logout()
                   .then(refetch)
-                  .then(() => navigate('/login'));
+                  // .then(() => navigate('/login'))
+                ;
               }}>Logout</a></li>
             </>
           ) : (
