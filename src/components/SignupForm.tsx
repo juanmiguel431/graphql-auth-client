@@ -4,9 +4,9 @@ import { ApolloError, useMutation } from '@apollo/client';
 import { signupMutation } from '../mutations';
 import { fetchUserQuery } from '../queries';
 import { useNavigate } from 'react-router-dom';
-import requireNotAuth from './requireNotAuth.tsx';
+// import requireNotAuth from './requireNotAuth.tsx';
 
-const _SignupForm: React.FC = () => {
+const SignupForm: React.FC = () => {
   const [errors, setErrors] = useState<string[]>([]);
   const [signup, loginResult] = useMutation(signupMutation);
 
@@ -36,7 +36,7 @@ const _SignupForm: React.FC = () => {
   );
 };
 
-const SignupForm = requireNotAuth(_SignupForm);
+// const SignupForm = requireNotAuth(_SignupForm);
 
 export default SignupForm;
 

@@ -1,11 +1,11 @@
-import requireAuth from './requireAuth.tsx';
+// import requireAuth from './requireAuth.tsx';
 
-const _Dashboard = () => {
+const Dashboard = () => {
   return (
     <div>Dashboard</div>
   );
 };
 
-const Dashboard = requireAuth(_Dashboard);
+// const Dashboard = requireAuth(_Dashboard);
 
 export default Dashboard;

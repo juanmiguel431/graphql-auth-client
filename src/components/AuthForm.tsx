@@ -27,6 +27,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, errors }) => {
           <label htmlFor="email">Email</label>
           <input
             type="email"
+            autoComplete="username"
             id="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
@@ -37,6 +38,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, errors }) => {
           <input
             type="password"
             id="password"
+            autoComplete="current-password"
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
